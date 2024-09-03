@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rick And Morty DB"
 include(":app")
+include(":data")
+include(":core")
