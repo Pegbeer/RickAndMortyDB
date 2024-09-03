@@ -29,7 +29,7 @@ class CharacterPagingSource (
 
             val info = response.data!!.characters?.info
 
-            val prevKey = info?.prev ?: 1
+            val prevKey = info?.prev
             val nextKey = info?.next
 
             LoadResult.Page(
