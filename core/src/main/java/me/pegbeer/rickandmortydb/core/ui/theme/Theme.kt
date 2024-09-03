@@ -1,4 +1,4 @@
-package me.pegbeer.rickandmortydb.ui.theme
+package me.pegbeer.rickandmortydb.core.ui.theme
 
 import android.app.Activity
 import android.os.Build
