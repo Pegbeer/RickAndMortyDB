@@ -1,4 +1,4 @@
-query GetAllCharacters($page:Int){
+query GetAllCharacters($page:Int!){
     characters(page: $page){
         info{
             count
@@ -10,6 +10,7 @@ query GetAllCharacters($page:Int){
             id
             name
             image
+            gender
         }
     }
 }

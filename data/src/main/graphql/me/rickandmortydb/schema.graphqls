@@ -1,6 +1,6 @@
 type Query {
     characters(page: Int, filter: FilterCharacter): Characters
-    character(id: ID!): Character
+    character(id: Int!): Character
 }
 
 input FilterCharacter{
@@ -21,13 +21,13 @@ type Info{
 }
 
 type Character {
-    id: ID!
+    id: Int!
     name: String!
     status: String
     species: String
     type: String
-    gender: String
-    image: String
+    gender: String!
+    image: String!
     created: String
 }
 

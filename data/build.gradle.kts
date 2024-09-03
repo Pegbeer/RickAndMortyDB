@@ -40,6 +40,8 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.apollo.client)
+    implementation(libs.paging.common)
+    implementation(project(":core"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
