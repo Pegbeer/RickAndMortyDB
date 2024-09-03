@@ -1,0 +1,36 @@
+type Query {
+    characters(page: Int, filter: FilterCharacter): Characters
+    character(id: ID!): Character
+}
+
+input FilterCharacter{
+    name: String!
+    gender:String!
+}
+
+type Characters{
+    info:Info
+    results:[Character]
+}
+
+type Info{
+    count:Int
+    pages:Int
+    next:Int
+    prev:Int
+}
+
+type Character {
+    id: ID!
+    name: String!
+    status: String
+    species: String
+    type: String
+    gender: String
+    image: String
+    created: String
+}
+
+schema {
+    query: Query
+}
