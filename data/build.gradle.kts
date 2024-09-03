@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinAndroidKsp)
     alias(libs.plugins.apollo)
 }
 
@@ -38,6 +39,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(libs.dagger.hilt)
+    ksp(libs.dagger.hilt.compiler)
 
     implementation(libs.apollo.client)
     implementation(libs.paging.common)

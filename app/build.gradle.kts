@@ -65,8 +65,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+
     implementation(libs.dagger.hilt)
     ksp(libs.dagger.hilt.compiler)
+    implementation(project(":core"))
+    implementation(project(":data"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
