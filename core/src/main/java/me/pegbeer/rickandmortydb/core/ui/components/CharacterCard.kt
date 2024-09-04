@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -57,7 +58,14 @@ fun CharacterCard(character: Character, onClick:() -> Unit){
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = character.name, style = Typography.titleMedium, lineHeight = 18.sp, overflow = TextOverflow.Ellipsis, maxLines = 2)
+            Text(
+                text = character.name,
+                style = Typography.titleMedium,
+                lineHeight = 18.sp,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 2,
+                textAlign = TextAlign.Center
+                )
             Spacer(
                 modifier = Modifier
                     .fillMaxWidth()

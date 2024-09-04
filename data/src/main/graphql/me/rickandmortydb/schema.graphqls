@@ -1,6 +1,6 @@
 type Query {
     characters(page: Int, filter: FilterCharacter): Characters
-    character(id: ID!): Character
+    character(id: ID!): Character!
 }
 
 input FilterCharacter{
@@ -29,7 +29,6 @@ type Character {
     id: Int!
     name: String!
     status: String!
-    species: String!
     type: String!
     gender: String!
     image: String!

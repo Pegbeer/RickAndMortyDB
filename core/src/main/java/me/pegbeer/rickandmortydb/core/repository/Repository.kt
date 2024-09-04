@@ -8,5 +8,5 @@ import me.pegbeer.rickandmortydb.core.model.Character
 interface Repository {
     fun fetchCharacterList():Flow<PagingData<Character>>
 
-    suspend fun fetchCharacterDetails(id:Int):Result<Character>
+    fun fetchCharacterDetails(id:Int):Flow<Result<Character>>
 }

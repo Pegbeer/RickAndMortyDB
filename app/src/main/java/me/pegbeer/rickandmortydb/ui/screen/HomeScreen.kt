@@ -63,10 +63,10 @@ fun HomeScreen(
             ){
                 Text(text = buildAnnotatedString{
                     withStyle(style = SpanStyle(fontSize = 20.sp)){
-                        append("¡Hola,")
+                        append("¡Hello,")
                     }
                     withStyle(style = SpanStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)){
-                        append(" bienvenido!")
+                        append(" welcome!")
                     }
                 })
             }

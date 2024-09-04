@@ -23,13 +23,15 @@ class RepositoryImpl(
         ).flow
     }
 
-    override suspend fun fetchCharacterDetails(id:Int): Result<Character>{
+    override fun fetchCharacterDetails(id:Int): Flow<Result<Character>> = flow{
         println("ID OF THE CHARACTER : $id")
         val response = apolloClient.query(GetCharacterDetailsQuery(id.toString())).execute()
         if(response.hasErrors()){
-            return Result.error(-1)
-        }else{
-            val result = response.data!!.character!!
+            emit(Result.error(-1))
+        }
+
+        response.data?.let {
+            val result = it.character
             val character = Character(
                 result.id,
                 result.name,
@@ -40,8 +42,7 @@ class RepositoryImpl(
                 result.origin.name,
                 result.origin.dimension
             )
-
-            return Result.success(character)
+            emit(Result.success(character))
         }
     }
 }
