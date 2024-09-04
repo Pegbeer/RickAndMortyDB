@@ -25,19 +25,40 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+
+    buildFeatures{
+        compose = true
     }
+    composeOptions{
+        kotlinCompilerExtensionVersion = "1.5.13"
+    }
+}
+
+kotlin{
+    jvmToolchain(11)
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.paging.common)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+
+
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    debugImplementation(libs.ui.tooling)
+
 
     implementation(libs.apollo.client)
     implementation(libs.paging.common)

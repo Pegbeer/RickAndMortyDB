@@ -24,12 +24,12 @@ class CharacterPagingSource (
             if (response.data!!.characters?.results.isNullOrEmpty()) throw NullPointerException("No more resources to load")
 
             val characters = response.data!!.characters!!.results!!.map {
-                Character(it!!.id,it.name,it.image,it.gender)
+                Character(it!!.id,it.name,it.image,it.gender,"","","","")
             }
 
             val info = response.data!!.characters?.info
 
-            val prevKey = info?.prev ?: 1
+            val prevKey = info?.prev
             val nextKey = info?.next
 
             LoadResult.Page(

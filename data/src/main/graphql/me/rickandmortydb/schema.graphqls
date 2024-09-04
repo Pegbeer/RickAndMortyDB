@@ -1,6 +1,6 @@
 type Query {
     characters(page: Int, filter: FilterCharacter): Characters
-    character(id: Int!): Character
+    character(id: ID!): Character!
 }
 
 input FilterCharacter{
@@ -20,15 +20,20 @@ type Info{
     prev:Int
 }
 
+type Location{
+    name:String!
+    dimension:String!
+}
+
 type Character {
     id: Int!
     name: String!
-    status: String
-    species: String
-    type: String
+    status: String!
+    type: String!
     gender: String!
     image: String!
-    created: String
+    origin:Location!
+    created: String!
 }
 
 schema {
