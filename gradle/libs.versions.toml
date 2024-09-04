@@ -19,6 +19,7 @@ material = "1.11.0"
 paging = "3.2.1"
 navigation = "2.7.7"
 hilt-navigation = "1.0.0"
+androidx-lifecycle = "2.8.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -48,6 +49,7 @@ test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", ve
 paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+androidx-lifecycle-viewModelCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import me.pegbeer.rickandmortydb.core.ui.components.CharacterCard
@@ -37,6 +38,7 @@ import me.pegbeer.rickandmortydb.ui.viewmodel.HomeViewModel
 
 @Composable
 fun HomeScreen(
+    navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ){
     val characters = viewModel.characters.collectAsLazyPagingItems()
@@ -85,7 +87,9 @@ fun HomeScreen(
                 ) {
                     items(characters.itemCount){ index ->
                         val character = characters[index]!!
-                        CharacterCard(character = character)
+                        CharacterCard(character = character){
+                            navController.navigate("detail/${character.id}")
+                        }
                     }
                 }
             }
@@ -97,6 +101,6 @@ fun HomeScreen(
 @Composable
 fun PreviewHomeScreen(){
     RickAndMortyDBTheme {
-        HomeScreen()
+
     }
 }

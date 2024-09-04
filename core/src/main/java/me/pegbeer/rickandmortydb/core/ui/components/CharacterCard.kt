@@ -1,6 +1,8 @@
 package me.pegbeer.rickandmortydb.core.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,9 +13,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,7 +37,7 @@ import me.pegbeer.rickandmortydb.core.ui.theme.Typography
 import me.pegbeer.rickandmortydb.core.ui.theme.WhiteGray40
 
 @Composable
-fun CharacterCard(character: Character){
+fun CharacterCard(character: Character, onClick:() -> Unit){
     val context = LocalContext.current
     Box(
         modifier = Modifier
@@ -41,6 +45,12 @@ fun CharacterCard(character: Character){
             .height(160.dp)
             .clip(RoundedCornerShape(10.dp))
             .background(color = WhiteGray40)
+            .clickable(
+                enabled = true,
+                onClick = onClick,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple()
+            )
             .padding(15.dp)
     ){
         Column(
@@ -49,7 +59,8 @@ fun CharacterCard(character: Character){
         ) {
             Text(text = character.name, style = Typography.titleMedium, lineHeight = 18.sp, overflow = TextOverflow.Ellipsis, maxLines = 2)
             Spacer(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .height(8.dp)
             )
             AsyncImage(
@@ -63,10 +74,6 @@ fun CharacterCard(character: Character){
                 .allowHardware(true)
                 .placeholder(R.drawable.image_24)
                 .build(), contentDescription = null)
-
-            Surface {
-
-            }
         }
     }
 }
@@ -78,7 +85,7 @@ fun PreviewCharacterCard(){
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            CharacterCard(character = Character(1,"Rick", "https://rickandmortyapi.com/api/character/avatar/1.jpeg", "Male"))
+
         }
     }
 }
